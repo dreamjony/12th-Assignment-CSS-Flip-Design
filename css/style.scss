@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+// body {
+//     background: linear-gradient(
+//       to right bottom,
+//       rgba(255, 192, 203, 0.8) 0%,
+//       rgba(250, 128, 114, 0.8) 50%,
+//       rgba(102, 173, 102, 0.8) 100%
+//     );
+
+//   }
+
+
+ 
+.wapper__section {
+    position: relative;
+    top: 100px;
+}
+
+.wapper__section .wapper__content {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px 0;
+    position: relative;
+    --border-width: 5px;
+    border-radius: var(--border-width);
+    position: relative;
+}
+
+.wapper__section .wapper__content::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+        60deg,
+        hsl(224, 85%, 66%),
+        hsl(269, 85%, 66%),
+        hsl(314, 85%, 66%),
+        hsl(359, 85%, 66%),
+        hsl(44, 85%, 66%),
+        hsl(89, 85%, 66%),
+        hsl(134, 85%, 66%),
+        hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+}
+
+@keyframes moveGradient {
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+
+
+.wapper__section .wapper__content:hover {
+    box-shadow: 0 0 25px black, 0 0 25px rgb(5, 113, 45) inset;
+    transition: box-shadow .3s;
+}
+
+.wapper__section .wapper__content .wapper__item {
+    width: 300px;
+    height: 300px;    
+    perspective: 1000;
+    overflow: hidden;    
+}
+.wapper__section .wapper__content .wapper__item:hover .back {    
+    transform: rotateY(0deg);
+    z-index: 10;
+    background: url("../images/manipulation-services-after-creative-level.jpg");
+    background-repeat: no-repeat;
+    background-position: center;    
+    background-size: cover;
+}
+.wapper__section .wapper__content .wapper__item:hover .front {    
+    transform: rotateY(180deg);
+    z-index: -1;
+}
+.wapper__section .wapper__content .wapper__item:hover .front_one {    
+    transform: rotate3d(1, 1, 0, 180deg);
+    z-index: -2;
+}
+
+.wapper__section .wapper__content .wapper__item .back, .wapper__section .wapper__content .wapper__item .front {
+    position: relative;
+    background-color: #1b2d61;
+    color: #a31414;   
+    display: flex;   
+    justify-content: center;    
+    align-content: center;        
+    transition: all 1s cubic-bezier(0.5, 1.3, 0.5, 1.3);    
+    transform-style: preserve-3d;        
+
+}
+.wapper__section .wapper__content .wapper__item .back {
+    background-color: #1b2d61;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;    
+    transform: rotateY(-180deg);
+}
+
+.wapper__section .wapper__content .wapper__item .front {
+    z-index: 10;
+    height: 100%;
+    background: url("../images/photo-manipulation-services-before-creative-level.jpg");
+    background-position: center;
+    background-repeat: no-repeat;    
+    background-size: cover;
+}
+
+.wapper__section .wapper__content .wapper__item > .front img {
+    width: 100%;
+    height: auto;
+}
+
+.wapper__section .wapper__content .wapper__item .card-wrapper .card {
+    position: relative;
+    cursor: pointer;    
+    transition-duration: 0.6s;    
+    transition-timing-function: ease-in-out;    
+}
+.wapper__section .wapper__content .wapper__item .card-wrapper .card .front-one, .wapper__section .wapper__content .wapper__item .card-wrapper .card .back-two {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+    backface-visibility: hidden;    
+    transform: rotateX(0deg);
+}
+
+.wapper__section .wapper__content .wapper__item .card-wrapper.flip-diagonal-right .card .back-two {    
+    transform: rotate3d(1, 1, 0, 180deg);
+    
+}
+.wapper__section .wapper__content .wapper__item .card-wrapper.flip-diagonal-right:hover .card {   
+    transform: rotate3d(1, 1, 0, 180deg);    
+}
+.wapper__section .wapper__content .wapper__item .card-wrapper, .wapper__section .wapper__content .wapper__item .card {
+    width: 100%;
+    height: 100%;
+}
+
+.wapper__section .wapper__content .wapper__item .card .front-one {
+    background: url("../images/image-360.gif");
+    background-position: center;
+    background-repeat: no-repeat;    
+    background-size: cover;    
+}
+
+.wapper__section .wapper__content .wapper__item .back-3 {
+    background: url("../images/Manipulation\ Before\ 2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;    
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.wapper__section .wapper__content .wapper__item .back-3::before {
+    content: "";
+    position: absolute;
+    right: 7px;
+    top: 0px;
+    color: #fff;
+    font-size: 20px;
+    background: green;    
+    width: max-content;
+    padding: 0 14px;   
+    border-radius: 50px;    
+    display: flex;    
+    align-items: center;
+}
+.wapper__section .wapper__content .wapper__item .back-3::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    background: url("../images/Manipulation\ After\ 2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;    
+    background-size: cover;    
+    transition: 0.5s;
+    visibility: hidden;
+}
+.wapper__section .wapper__content .wapper__item .back-3:hover::after {
+    top: 0%;
+    right: 0%;
+    visibility: visible;
+    box-shadow: 0 0 25px black, 0 0 25px rgb(113, 5, 5) inset;
+    transition: box-shadow .3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
